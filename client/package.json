@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "start": "npm start --prefix Royal-hotel",
+    "dev": "npm run dev --prefix Royal-hotel",
+    "build": "npm run build --prefix Royal-hotel"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "bootstrap": "^5.3.3",
+    "jwt-decode": "^4.0.0",
+    "react-bootstrap": "^2.10.2"
+  }
+}

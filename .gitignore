@@ -1,0 +1,43 @@
+# --- Global ---
+.DS_Store
+.vscode/
+.idea/
+*.log
+
+# --- Backend (Spring Boot / Maven) ---
+real-hotel-se/target/
+real-hotel-se/**/*.class
+real-hotel-se/**/*.jar
+real-hotel-se/**/*.war
+real-hotel-se/**/*.nar
+real-hotel-se/**/*.ear
+real-hotel-se/**/*.zip
+real-hotel-se/**/*.tar.gz
+real-hotel-se/**/*.rar
+# Exclude packaged jar but keep wrapper if needed
+!real-hotel-se/mvnw
+!real-hotel-se/mvnw.cmd
+
+# Eclipse / IntelliJ
+real-hotel-se/.classpath
+real-hotel-se/.project
+real-hotel-se/.settings/
+real-hotel-se/*.iml
+
+# --- Frontend (React / Node) ---
+client/Royal-hotel/node_modules/
+client/Royal-hotel/dist/
+client/Royal-hotel/build/
+client/Royal-hotel/.env
+client/Royal-hotel/.env.local
+client/Royal-hotel/.env.development.local
+client/Royal-hotel/.env.test.local
+client/Royal-hotel/.env.production.local
+client/Royal-hotel/npm-debug.log*
+client/Royal-hotel/yarn-debug.log*
+client/Royal-hotel/yarn-error.log*
+
+# --- Deployment ---
+# Ensure we don't ignore deployment guides or dockerfiles
+!deployment_guide.md
+!Dockerfile
