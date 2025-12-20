@@ -49,6 +49,18 @@ public class RoomController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
+    @GetMapping("/populate")
+    public ResponseEntity<String> populateRooms() throws SQLException, IOException {
+        if (!roomService.getAllRooms().isEmpty()) {
+            return ResponseEntity.ok("Rooms already exist!");
+        }
+        roomService.addNewRoom(null, "Single Standard Room", new BigDecimal("100.00"));
+        roomService.addNewRoom(null, "Double Sea View Room", new BigDecimal("250.00"));
+        roomService.addNewRoom(null, "Family Suite", new BigDecimal("400.00"));
+        roomService.addNewRoom(null, "Presidential Suite", new BigDecimal("1000.00"));
+        return ResponseEntity.ok("Rooms populated successfully!");
+    }
+
     @GetMapping("/room/types")
     public List<String> getRoomTypes() {
         return roomService.getAllRoomTypes();
