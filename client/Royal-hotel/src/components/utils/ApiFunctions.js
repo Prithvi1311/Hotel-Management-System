@@ -6,6 +6,25 @@ export const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:9192",
 });
 
+api.interceptors.response.use(
+  (response) => {
+    // Check if the response data is HTML (string starting with <!DOCTYPE or <html)
+    if (
+      typeof response.data === "string" &&
+      (response.data.trim().startsWith("<!DOCTYPE") ||
+        response.data.trim().startsWith("<html"))
+    ) {
+      throw new Error(
+        "The API returned an HTML page instead of JSON data. This usually means the API base URL is misconfigured in your deployment environment variables (VITE_API_BASE_URL) or the backend service is down."
+      );
+    }
+    return response;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
 export const getHeader = () => {
   const token = localStorage.getItem("token");
   console.log("Token:", token);
