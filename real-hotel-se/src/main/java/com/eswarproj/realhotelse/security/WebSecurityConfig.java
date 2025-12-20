@@ -58,7 +58,7 @@ public class WebSecurityConfig {
                         exception -> exception.authenticationEntryPoint(jwtAuthEntryPoint))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/**", "/rooms/**", "/error").permitAll()
+                        .requestMatchers("/auth/**", "/rooms/**", "/error", "/debug/**").permitAll()
                         .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/roles/**").hasRole("ADMIN")
                         .anyRequest().authenticated());
